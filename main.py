@@ -1,20 +1,17 @@
+class Book:
+    def __init__(self, title, author, genre):
+        self.title = title
+        self.author = author
+        self.genre = genre
 
-class Car:
-    def __init__(self,brand,model,year):
-        self.brand = brand
-        self.model = model
-        self.year = year
+    def display_info(self):
+        print(f"Title: {self.title}, Author: {self.author}, Genre: {self.genre}")
 
-    def start_engine(self):
-        return print('engine STARTED')
+    def __str__(self):
+        return f"Title: {self.title}, Author: {self.author}, Genre: {self.genre}"
 
     def __eq__(self, other):
-        return self.year == other.year
-    def __le__(self,other):
-        return self.year <= other.year
-    def __it__(self,other):
-        return self.year < other.year
-    def __ne__(self,other):
-        return self.year != other.year
-    def __ge__(self,other):
-        return self.year >= other.year
+        if isinstance(other, Book):
+            return (self.title == other.title) and (self.author == other.author) and (self.genre == other.genre)
+        return False
+
